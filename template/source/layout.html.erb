@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <title>Pattern Library | <%= page_title %></title>
+  <%= stylesheet_link_tag "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.teal-red.min.css" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+  <%= stylesheet_link_tag "mpl/application" %>
+  <%= favicon_tag "images/favicon.png" %>
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+              mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title"><%= page_title %></span>
+      </div>
+      <%= yield_content(:tab_navigation) if content_for?(:tab_navigation) %>
+    </header>
+    <div class="mdl-layout__drawer">
+      <nav class="mdl-navigation">
+        <span class="mdl-navigation__link mpl-navigation__title">
+          Introduction
+        </span>
+        <%= link_to 'Overview', '/index.html', class: 'mdl-navigation__link' %>
+        <div class="mpl-navigation__separator"></div>
+        <% navigation.each_with_index do |(category, subcategories), index| %>
+          <span class="mdl-navigation__link mpl-navigation__title">
+            <%= category %>
+          </span>
+          <% subcategories.each do |subcategory| %>
+            <%= link_to subcategory[:name], subcategory.link,
+                  class: 'mdl-navigation__link',
+                  data: { title: subcategory.name } %>
+          <% end %>
+          <% unless index == navigation.size - 1 %>
+            <div class="mpl-navigation__separator"></div>
+          <% end %>
+        <% end %>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="mpl-layout__content">
+        <%= yield %>
+      </div>
+    </main>
+  </div>
+  <%= javascript_include_tag "https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js" %>
+  <%= javascript_include_tag "mpl/application" %>
+</body>
+</html>

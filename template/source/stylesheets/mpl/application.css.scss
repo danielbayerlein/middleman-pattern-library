@@ -1,0 +1,70 @@
+//= require mpl/vendor/syntax
+
+// ------
+// Layout
+// ------
+.mpl-layout {
+  &__content {
+    padding: 16px;
+  }
+}
+
+// ----------
+// Navigation
+// ----------
+.mpl-navigation {
+  &__title {
+    font-weight: bold;
+  }
+
+  &__separator {
+    background-color: #dcdcdc;
+    height: 1px;
+    margin: 16px 0;
+  }
+}
+
+// -------------
+// Color palette
+// -------------
+.mpl-color-palette {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  .mdl-card {
+    margin: 8px;
+    width: 200px;
+  }
+  .mpl-lighten-54 {
+  color: rgba(255, 255, 255, .54);
+  }
+  .mpl-lighten-87 {
+    color: rgba(255, 255, 255, .87);
+  }
+}
+
+// ------------
+// Card pattern
+// ------------
+.mpl-card-pattern {
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto;
+  min-height: auto;
+  width: 90%;
+}
+
+// ------
+// iFrame
+// ------
+[data-iframe] {
+  display: none;
+}
+
+// ------------------------
+// Code syntax highlighting
+// ------------------------
+pre.highlight {
+  overflow-y: auto;
+}

@@ -44,6 +44,9 @@ page '/*.txt', layout: false
 
 # General configuration
 
+# Middleman-Sprockets - https://github.com/middleman/middleman-sprockets
+activate :sprockets
+
 # Middleman-Syntax - https://github.com/middleman/middleman-syntax
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, smartypants: true, footnotes: true,
